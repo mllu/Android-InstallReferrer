@@ -22,10 +22,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.widget.TextView;
 
 
@@ -49,6 +51,14 @@ public class MainActivity extends Activity {
         content = (TextView) findViewById(R.id.content);
         initViews();
         updateData();
+        Intent in = getIntent();
+        Uri data = in.getData();
+        Log.d("debug", "start");
+        if (data != null && data.isHierarchical()) {
+            String uri = this.getIntent().getDataString();
+//            Log.d("debug", "deeplink: "+data.toString());
+            Log.d("debug", "Deep link clicked " + uri);
+        }
     }
 
     private void initViews() {
