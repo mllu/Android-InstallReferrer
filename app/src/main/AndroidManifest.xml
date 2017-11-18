@@ -36,13 +36,7 @@
                     android:host="install.referrer"
                     android:path="/install/referrer"
                     android:scheme="ir" />
-                <data
-                    android:host="vula.space"
-                    android:path="/mypath"
-                    android:scheme="vs" />
-                <data
-                    android:host="vula.space"
-                    android:scheme="http" />
+
             </intent-filter>
         </activity>
 
@@ -64,8 +58,11 @@
 
                 <data
                     android:host="vula.space"
-                    android:path="/mypath1"
+                    android:path="/mypath"
                     android:scheme="vs" />
+                <data
+                    android:host="vula.space"
+                    android:scheme="http" />
 
             </intent-filter>
         </activity>

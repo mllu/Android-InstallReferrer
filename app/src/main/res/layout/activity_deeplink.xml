@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
+        android:lineSpacingMultiplier="1.2"
         android:padding="16dp"
         android:text="deeplink" />
 
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
+        android:lineSpacingMultiplier="1.2"
         android:padding="16dp"
         android:text="InstallReferrer" />
 </LinearLayout>
