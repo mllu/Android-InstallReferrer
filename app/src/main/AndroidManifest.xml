@@ -33,6 +33,10 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
+                    android:host="install.referrer"
+                    android:path="/install/referrer"
+                    android:scheme="ir" />
+                <data
                     android:host="vula.space"
                     android:path="/mypath"
                     android:scheme="vs" />

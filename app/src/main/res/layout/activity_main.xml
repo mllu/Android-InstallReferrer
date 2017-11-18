@@ -51,4 +51,19 @@
             android:typeface="serif" />
     </ScrollView>
 
+    <TextView
+        android:id="@+id/deeplink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Deeplink"
+        android:typeface="serif" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="passMessage"
+        android:text="Send" />
+
 </LinearLayout>

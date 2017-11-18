@@ -28,13 +28,17 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-
+    public static final String DEEPLINK = "vula.space.DEEPLINK";
+    public static final String INSTALL_REFERRER = "vula.space.INSTALL_REFERRER";
     private TextView title;
     private TextView content;
+    private TextView deeplink;
 
     private final BroadcastReceiver mUpdateReceiver = new BroadcastReceiver() {
         @Override
@@ -49,15 +53,23 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         title = (TextView) findViewById(R.id.app_name_and_version);
         content = (TextView) findViewById(R.id.content);
+        deeplink = (TextView) findViewById(R.id.deeplink);
         initViews();
         updateData();
         Intent in = getIntent();
         Uri data = in.getData();
         Log.d("debug", "start");
         if (data != null && data.isHierarchical()) {
+
             String uri = this.getIntent().getDataString();
 //            Log.d("debug", "deeplink: "+data.toString());
             Log.d("debug", "Deep link clicked " + uri);
+            StringBuilder sb = new StringBuilder();
+            sb.append("<b>Deeplink:</b>")
+                    .append("<br/>")
+                    .append(uri);
+            deeplink.setText(Html.fromHtml(sb.toString()));
+            deeplink.setMovementMethod(new LinkMovementMethod());
         }
     }
 
@@ -106,6 +118,18 @@ public class MainActivity extends Activity {
 
         content.setText(Html.fromHtml(sb.toString()));
         content.setMovementMethod(new LinkMovementMethod());
+    }
+
+    /** Called when the user taps the Send button */
+    public void passMessage(View view) {
+        Intent intent = new Intent(this, DeeplinkActivity.class);
+        String dl = deeplink.getText().toString();
+        Log.d("debug", "put extra message " + dl);
+        intent.putExtra(DEEPLINK, dl);
+        String installReferrer = content.getText().toString();
+        Log.d("debug", "put extra message " + installReferrer);
+        intent.putExtra(INSTALL_REFERRER, installReferrer);
+        startActivity(intent);
     }
 
     @Override
