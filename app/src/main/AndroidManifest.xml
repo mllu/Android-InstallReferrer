@@ -57,11 +57,11 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="vula.space"
+                    android:host="attribution.win"
                     android:path="/mypath"
-                    android:scheme="vs" />
+                    android:scheme="deeplink" />
                 <data
-                    android:host="vula.space"
+                    android:host="attribution.win"
                     android:scheme="http" />
 
             </intent-filter>
